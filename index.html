@@ -1,512 +1,216 @@
 <!doctype html>
 <html lang="en">
 <head>
+
 <meta charset="utf-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>Jacob Rodriguez</title>
-<meta name="description" content="Jacob Rodriguez — Technical Support Specialist. IT, networking, security systems. Chicago / Chicagoland."/>
+
+<title>JR Tech Support | IT Help for Homes & Small Businesses</title>
+
+<meta name="description" content="Affordable IT support for homes and small businesses in the Northwest Chicago suburbs. WiFi troubleshooting, computer repair, printer setup, and security camera installation."/>
+
 <link rel="preconnect" href="https://fonts.googleapis.com"/>
-<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600;700&family=Syne:wght@400;600;700;800&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+
 <style>
-:root{
-  --bg:#070A10;
-  --surface:#0D1117;
-  --surface2:#111820;
-  --border:rgba(0,255,170,.13);
-  --border2:rgba(255,255,255,.07);
-  --text:#E8F0F8;
-  --muted:rgba(232,240,248,.60);
-  --muted2:rgba(232,240,248,.38);
-  --green:#00FFAA;
-  --blue:#38BDF8;
-  --purple:#A78BFA;
-  --orange:#FB923C;
-  --mono:'JetBrains Mono', monospace;
-  --sans:'Syne', sans-serif;
-  --radius:16px;
-  --shadow:0 20px 50px rgba(0,0,0,.30);
-}
-*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
-html{scroll-behavior:smooth}
+
 body{
-  background:var(--bg);
-  color:var(--text);
-  font-family:var(--sans);
-  line-height:1.6;
-  overflow-x:hidden;
+font-family:Inter, sans-serif;
+margin:0;
+background:#0e0e10;
+color:white;
+line-height:1.6;
 }
-body::before{
-  content:'';
-  position:fixed;inset:0;
-  background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='1'/%3E%3C/svg%3E");
-  opacity:.02;pointer-events:none;z-index:0;
-}
-body::after{
-  content:'';
-  position:fixed;inset:0;
-  background-image:
-    linear-gradient(rgba(0,255,170,.03) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(0,255,170,.03) 1px, transparent 1px);
-  background-size:40px 40px;
-  pointer-events:none;z-index:0;
-}
-.wrap{max-width:1120px;margin:auto;padding:0 24px 100px;position:relative;z-index:1}
 
-/* NAV */
-nav{
-  position:sticky;top:0;z-index:100;
-  background:rgba(7,10,16,.88);
-  backdrop-filter:blur(18px);
-  border-bottom:1px solid var(--border2);
-  padding:14px 24px;
-  display:flex;align-items:center;justify-content:space-between;gap:16px;
+header{
+padding:40px 20px;
+text-align:center;
+background:#121217;
+border-bottom:1px solid #222;
 }
-.nav-brand{font-family:var(--mono);font-size:.9rem;color:var(--green);text-decoration:none}
-.nav-links{display:flex;gap:4px;list-style:none;flex-wrap:wrap}
-.nav-links a{
-  font-family:var(--mono);font-size:.78rem;color:var(--muted);text-decoration:none;
-  padding:6px 12px;border-radius:8px;border:1px solid transparent;transition:all .2s;
-}
-.nav-links a:hover{color:var(--green);border-color:var(--border);background:rgba(0,255,170,.05)}
 
-/* HERO */
-.hero{
-  padding:92px 0 68px;
-  display:grid;grid-template-columns:1.2fr .8fr;gap:34px;align-items:start;
+h1{
+font-weight:600;
+font-size:36px;
 }
-@media(max-width:860px){.hero{grid-template-columns:1fr}}
 
-.hero h1{
-  font-size:clamp(2.7rem,6vw,4.5rem);font-weight:800;
-  line-height:1.03;letter-spacing:-.03em;
-  animation:fadeUp .6s .1s ease both;
+h2{
+margin-top:40px;
+font-weight:500;
 }
-.hero h1 span{
-  background:linear-gradient(135deg,var(--green) 0%,var(--blue) 60%,var(--purple) 100%);
-  -webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;
-}
-.hero-sub{
-  margin-top:14px;font-family:var(--mono);font-size:.88rem;color:var(--muted);
-  animation:fadeUp .6s .2s ease both;
-  display:flex;align-items:center;gap:10px;flex-wrap:wrap;
-}
-.marine-badge{
-  display:inline-flex;align-items:center;gap:6px;
-  font-family:var(--mono);font-size:.72rem;color:var(--muted2);
-  background:rgba(255,255,255,.04);border:1px solid var(--border2);
-  padding:3px 10px;border-radius:999px;
-}
-.hero-summary{
-  margin-top:20px;color:var(--muted);font-size:1rem;
-  max-width:56ch;line-height:1.75;
-  animation:fadeUp .6s .3s ease both;
-}
-.hero-btns{
-  margin-top:28px;display:flex;gap:10px;flex-wrap:wrap;
-  animation:fadeUp .6s .4s ease both;
-}
-.btn{
-  font-family:var(--mono);font-size:.82rem;padding:11px 18px;
-  border-radius:10px;text-decoration:none;transition:all .2s;
-  border:1px solid var(--border2);color:var(--muted);background:var(--surface);
-}
-.btn:hover{color:var(--text);border-color:rgba(255,255,255,.2);transform:translateY(-1px)}
-.btn.primary{
-  background:linear-gradient(135deg,rgba(0,255,170,.15),rgba(56,189,248,.12));
-  border-color:rgba(0,255,170,.35);color:var(--green);
-}
-.btn.primary:hover{background:linear-gradient(135deg,rgba(0,255,170,.25),rgba(56,189,248,.2));box-shadow:0 0 24px rgba(0,255,170,.18)}
 
-/* STATUS CARD */
-.status-card{
-  background:var(--surface);border:1px solid var(--border2);
-  border-radius:18px;padding:24px;box-shadow:var(--shadow);
-  animation:fadeUp .6s .25s ease both;
+.container{
+max-width:1000px;
+margin:auto;
+padding:20px;
 }
-.status-row{
-  display:flex;align-items:center;gap:10px;
-  font-family:var(--mono);font-size:.8rem;color:var(--muted);margin-bottom:14px;
-}
-.status-dot{
-  width:8px;height:8px;border-radius:999px;background:var(--green);
-  box-shadow:0 0 8px var(--green);animation:pulse 2s infinite;
-}
-.status-item{margin-top:14px;padding-top:14px;border-top:1px solid var(--border2);font-family:var(--mono);font-size:.78rem}
-.status-label{color:var(--muted2);margin-bottom:4px}
-.status-value{color:var(--text)}
-.status-value.green{color:var(--green)}
-.status-value.blue{color:var(--blue)}
-.status-value.purple{color:var(--purple)}
 
-/* MARQUEE */
-.marquee-wrap{
-  border-top:1px solid var(--border2);border-bottom:1px solid var(--border2);
-  padding:14px 0;overflow:hidden;margin-bottom:76px;
+.services{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+gap:20px;
+margin-top:30px;
 }
-.marquee-track{display:flex;gap:32px;animation:marquee 24s linear infinite;width:max-content}
-.marquee-item{
-  font-family:var(--mono);font-size:.8rem;color:var(--muted2);white-space:nowrap;
-  display:flex;align-items:center;gap:10px;
-}
-.marquee-item::before{content:'◈';color:var(--green);opacity:.5}
-
-/* SECTIONS */
-.section-label{font-family:var(--mono);font-size:.75rem;color:var(--green);letter-spacing:.12em;text-transform:uppercase;margin-bottom:8px}
-.section-title{font-size:1.9rem;font-weight:800;margin-bottom:30px;letter-spacing:-.01em}
-.divider{border:none;border-top:1px solid var(--border2);margin:0 0 76px}
-
-/* CARDS */
-.cards-3{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-bottom:76px}
-.cards-2{display:grid;grid-template-columns:repeat(2,1fr);gap:14px;margin-bottom:76px}
-@media(max-width:900px){.cards-3{grid-template-columns:repeat(2,1fr)}}
-@media(max-width:700px){.cards-3,.cards-2{grid-template-columns:1fr}}
 
 .card{
-  background:var(--surface);border:1px solid var(--border2);
-  border-radius:14px;padding:24px;transition:all .25s;box-shadow:var(--shadow);
+background:#18181c;
+padding:20px;
+border-radius:8px;
+border:1px solid #222;
 }
-.card:hover{border-color:rgba(0,255,170,.22);transform:translateY(-2px)}
-.card-label{font-family:var(--mono);font-size:.72rem;color:var(--green);margin-bottom:10px}
-.card-title{font-size:1rem;font-weight:700;margin-bottom:12px}
-.card-list{list-style:none;display:flex;flex-direction:column;gap:7px}
-.card-list li{font-size:.88rem;color:var(--muted);padding-left:15px;position:relative}
-.card-list li::before{content:'▸';position:absolute;left:0;top:2px;color:var(--green);opacity:.65;font-size:.75rem}
 
-/* PROOF CARDS */
-.proof-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:14px;margin-bottom:76px}
-@media(max-width:700px){.proof-grid{grid-template-columns:1fr}}
-.proof-card{
-  background:var(--surface);border:1px solid var(--border2);
-  border-radius:14px;padding:24px;transition:all .25s;
-  position:relative;overflow:hidden;box-shadow:var(--shadow);
+.card h3{
+margin-top:0;
 }
-.proof-card::before{
-  content:'';position:absolute;top:0;left:0;right:0;height:2px;
-  background:linear-gradient(90deg,var(--green),var(--blue));opacity:0;transition:opacity .25s;
-}
-.proof-card:hover{border-color:rgba(0,255,170,.22);transform:translateY(-3px)}
-.proof-card:hover::before{opacity:1}
-.proof-label{font-family:var(--mono);font-size:.72rem;color:var(--green);margin-bottom:10px}
-.proof-title{font-size:1rem;font-weight:700;margin-bottom:12px}
-.proof-list{list-style:none;display:flex;flex-direction:column;gap:6px}
-.proof-list li{font-size:.86rem;color:var(--muted);padding-left:14px;position:relative}
-.proof-list li::before{content:'→';position:absolute;left:0;color:var(--blue);font-size:.75rem}
 
-/* CERTS */
-.certs-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:14px;margin-bottom:76px}
-@media(max-width:650px){.certs-grid{grid-template-columns:1fr}}
-.cert-card{
-  background:var(--surface);border:1px solid var(--border2);
-  border-radius:14px;padding:20px 22px;
-  display:flex;align-items:center;gap:14px;transition:border-color .25s;box-shadow:var(--shadow);
+.price{
+color:#7dd3fc;
+font-weight:500;
 }
-.cert-card:hover{border-color:rgba(167,139,250,.3)}
-.cert-icon{font-size:1.8rem;min-width:36px;text-align:center}
-.cert-name{font-weight:700;font-size:.95rem;margin-bottom:3px}
-.cert-status{font-family:var(--mono);font-size:.72rem}
-.cert-status.earned{color:var(--green)}
-.cert-status.progress{color:var(--orange)}
-.cert-status.planned{color:var(--muted2)}
-.cert-status.edu{color:var(--blue)}
 
-/* CONTACT */
-.contact-box{
-  background:var(--surface);border:1px solid var(--border2);
-  border-radius:18px;padding:42px;text-align:center;
-  position:relative;overflow:hidden;margin-bottom:70px;box-shadow:var(--shadow);
+.about{
+background:#141418;
+padding:25px;
+border-radius:8px;
+margin-top:40px;
 }
-.contact-box::before{
-  content:'';position:absolute;inset:0;
-  background:radial-gradient(600px at 50% 100%,rgba(0,255,170,.07),transparent 70%);
-  pointer-events:none;
-}
-.contact-title{font-size:2rem;font-weight:800;margin-bottom:10px}
-.contact-sub{color:var(--muted);font-size:.95rem;margin:0 auto 28px;max-width:48ch}
-.contact-links{display:flex;gap:12px;justify-content:center;flex-wrap:wrap}
 
-/* FOOTER */
+.contact{
+margin-top:40px;
+text-align:center;
+}
+
+button{
+background:#2563eb;
+border:none;
+padding:12px 20px;
+color:white;
+border-radius:6px;
+font-size:16px;
+cursor:pointer;
+}
+
 footer{
-  border-top:1px solid var(--border2);padding-top:28px;
-  text-align:center;font-family:var(--mono);font-size:.75rem;color:var(--muted2);
+text-align:center;
+margin-top:60px;
+padding:20px;
+font-size:14px;
+color:#aaa;
 }
-footer span{color:var(--green)}
 
-/* REVEAL */
-.reveal{opacity:0;transform:translateY(24px);transition:opacity .55s ease,transform .55s ease}
-.reveal.visible{opacity:1;transform:none}
-
-@keyframes fadeUp{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}
-@keyframes pulse{0%,100%{opacity:1;box-shadow:0 0 8px var(--green)}50%{opacity:.5;box-shadow:0 0 4px var(--green)}}
-@keyframes marquee{from{transform:translateX(0)}to{transform:translateX(-50%)}}
 </style>
 </head>
+
 <body>
 
-<nav>
-  <a class="nav-brand" href="#top">Jacob Rodriguez</a>
-  <ul class="nav-links">
-    <li><a href="#about">About</a></li>
-    <li><a href="#skills">Skills</a></li>
-    <li><a href="#work">Work</a></li>
-    <li><a href="#credentials">Credentials</a></li>
-    <li><a href="#contact">Contact</a></li>
-  </ul>
-</nav>
+<header>
 
-<div class="wrap" id="top">
+<h1>JR Tech Support</h1>
 
-  <!-- HERO -->
-  <section class="hero">
-    <div>
-      <h1>Jacob<br/><span>Rodriguez</span></h1>
-      <div class="hero-sub">
-        IT Support · Networking · Security Systems
-        <span class="marine-badge">USMC Veteran</span>
-      </div>
-      <p class="hero-summary">
-        Technical Support Specialist based in the Chicago area. Focused on IT infrastructure, security systems, and building the kind of technical career that scales into consulting.
-      </p>
-      <div class="hero-btns">
-        <a class="btn primary" href="#contact">Work With Me</a>
-        <a class="btn" href="https://www.linkedin.com/in/jacob-rodriguez-tech" target="_blank" rel="noreferrer">LinkedIn ↗</a>
-        <a class="btn" href="https://github.com/YOURHANDLE" target="_blank" rel="noreferrer">GitHub ↗</a>
-      </div>
-    </div>
+<p>
+Local IT Help for Homes & Small Businesses  
+Serving the Northwest Chicago Suburbs
+</p>
 
-    <div class="status-card">
-      <div class="status-row">
-        <div class="status-dot"></div>
-        <span>Open to opportunities</span>
-      </div>
-      <div class="status-item">
-        <div class="status-label">// location</div>
-        <div class="status-value">Chicago · Chicagoland</div>
-      </div>
-      <div class="status-item">
-        <div class="status-label">// focus</div>
-        <div class="status-value green">IT Support · Networking · Security</div>
-      </div>
-      <div class="status-item">
-        <div class="status-label">// background</div>
-        <div class="status-value blue">U.S. Marine Corps · MOS 0671</div>
-      </div>
-      <div class="status-item">
-        <div class="status-label">// direction</div>
-        <div class="status-value purple">Infrastructure · Consulting</div>
-      </div>
-    </div>
-  </section>
+</header>
 
-  <!-- MARQUEE -->
-  <div class="marquee-wrap">
-    <div class="marquee-track">
-      <span class="marquee-item">IP Networking</span>
-      <span class="marquee-item">Active Directory</span>
-      <span class="marquee-item">Windows Server</span>
-      <span class="marquee-item">NVR / PoE Systems</span>
-      <span class="marquee-item">DHCP / DNS</span>
-      <span class="marquee-item">Security Systems</span>
-      <span class="marquee-item">ServiceNow</span>
-      <span class="marquee-item">Wireshark</span>
-      <span class="marquee-item">VirtualBox</span>
-      <span class="marquee-item">Cisco Packet Tracer</span>
-      <span class="marquee-item">CompTIA ITF+</span>
-      <span class="marquee-item">USMC Veteran</span>
-      <!-- dupe -->
-      <span class="marquee-item">IP Networking</span>
-      <span class="marquee-item">Active Directory</span>
-      <span class="marquee-item">Windows Server</span>
-      <span class="marquee-item">NVR / PoE Systems</span>
-      <span class="marquee-item">DHCP / DNS</span>
-      <span class="marquee-item">Security Systems</span>
-      <span class="marquee-item">ServiceNow</span>
-      <span class="marquee-item">Wireshark</span>
-      <span class="marquee-item">VirtualBox</span>
-      <span class="marquee-item">Cisco Packet Tracer</span>
-      <span class="marquee-item">CompTIA ITF+</span>
-      <span class="marquee-item">USMC Veteran</span>
-    </div>
-  </div>
+<div class="container">
 
-  <!-- ABOUT -->
-  <section id="about" class="reveal">
-    <div class="section-label">// about</div>
-    <h2 class="section-title">Who I am</h2>
-    <div class="cards-2">
-      <div class="card">
-        <div class="card-label">// background</div>
-        <div class="card-title">Technical foundation</div>
-        <ul class="card-list">
-          <li>U.S. Marine Corps veteran — Data Systems Administrator, MOS 0671</li>
-          <li>Hands-on IT support with IP cameras, access control, and alarm systems</li>
-          <li>Disciplined, process-driven approach to every technical problem</li>
-          <li>Building toward infrastructure, security, and consulting</li>
-        </ul>
-      </div>
-      <div class="card">
-        <div class="card-label">// this site</div>
-        <div class="card-title">Personal brand & professional presence</div>
-        <ul class="card-list">
-          <li>Built for employers, hiring teams, and future clients</li>
-          <li>Reflects real skills, real work, and a clear technical direction</li>
-          <li>Designed to grow with my career</li>
-        </ul>
-      </div>
-    </div>
-  </section>
+<h2>Tech Support Services</h2>
 
-  <hr class="divider"/>
+<div class="services">
 
-  <!-- SKILLS -->
-  <section id="skills" class="reveal">
-    <div class="section-label">// skills</div>
-    <h2 class="section-title">Technical capabilities</h2>
-    <div class="cards-3">
-      <div class="card">
-        <div class="card-label">// support</div>
-        <div class="card-title">IT Support</div>
-        <ul class="card-list">
-          <li>Remote & on-site troubleshooting</li>
-          <li>IP cameras, NVRs, PoE switches</li>
-          <li>Access control & alarm systems</li>
-          <li>Ticket documentation & resolution</li>
-        </ul>
-      </div>
-      <div class="card">
-        <div class="card-label">// systems</div>
-        <div class="card-title">Networking & Infrastructure</div>
-        <ul class="card-list">
-          <li>IP networking, DHCP / DNS</li>
-          <li>Windows Server & Active Directory</li>
-          <li>Cisco VoIP & network config</li>
-          <li>VirtualBox lab environments</li>
-        </ul>
-      </div>
-      <div class="card">
-        <div class="card-label">// tools</div>
-        <div class="card-title">Tools & Platforms</div>
-        <ul class="card-list">
-          <li>ServiceNow · osTicket</li>
-          <li>Wireshark · Cisco Packet Tracer</li>
-          <li>Microsoft 365</li>
-          <li>VirtualBox</li>
-        </ul>
-      </div>
-    </div>
-  </section>
+<div class="card">
+<h3>WiFi & Network Setup</h3>
+<p>
+Router installation, slow internet troubleshooting, mesh networks, and guest WiFi setup.
+</p>
+<p class="price">$150 – $300</p>
+</div>
 
-  <hr class="divider"/>
+<div class="card">
+<h3>Computer Repair & Cleanup</h3>
+<p>
+Fix slow computers, remove viruses, install updates, and improve system performance.
+</p>
+<p class="price">$100 – $150</p>
+</div>
 
-  <!-- WORK -->
-  <section id="work" class="reveal">
-    <div class="section-label">// work</div>
-    <h2 class="section-title">Projects & hands-on practice</h2>
-    <div class="proof-grid">
-      <div class="proof-card">
-        <div class="proof-label">// home lab</div>
-        <div class="proof-title">Network Setup & Optimization</div>
-        <ul class="proof-list">
-          <li>Configured and tuned a home network for stability and performance</li>
-          <li>Structured troubleshooting — connectivity, device behavior, speed</li>
-          <li>Documented changes and outcomes throughout</li>
-        </ul>
-      </div>
-      <div class="proof-card">
-        <div class="proof-label">// systems lab</div>
-        <div class="proof-title">Windows Server Environment</div>
-        <ul class="proof-list">
-          <li>Built a virtualized lab for enterprise-style administration practice</li>
-          <li>Active Directory, DNS/DHCP, user and role management</li>
-          <li>Repeatable, hands-on skill building</li>
-        </ul>
-      </div>
-      <div class="proof-card">
-        <div class="proof-label">// security systems</div>
-        <div class="proof-title">Surveillance & Access Support</div>
-        <ul class="proof-list">
-          <li>IP camera and NVR configuration across client networks</li>
-          <li>PoE switch setup, access control, user credentials</li>
-          <li>Client-facing support with 95%+ satisfaction rate</li>
-        </ul>
-      </div>
-      <div class="proof-card">
-        <div class="proof-label">// process</div>
-        <div class="proof-title">Documentation & SOPs</div>
-        <ul class="proof-list">
-          <li>Structured troubleshooting frameworks and runbooks</li>
-          <li>Process improvement reducing repeat issues and audit gaps</li>
-          <li>Military-grade documentation discipline applied to IT</li>
-        </ul>
-      </div>
-    </div>
-  </section>
+<div class="card">
+<h3>Printer & Office Setup</h3>
+<p>
+Printer installation, scanner configuration, and shared network printing setup.
+</p>
+<p class="price">$75 – $150</p>
+</div>
 
-  <hr class="divider"/>
+<div class="card">
+<h3>Security Camera Setup</h3>
+<p>
+Installation and troubleshooting for home and small business camera systems.
+</p>
+<p class="price">$200 – $800</p>
+</div>
 
-  <!-- CREDENTIALS -->
-  <section id="credentials" class="reveal">
-    <div class="section-label">// credentials</div>
-    <h2 class="section-title">Certifications & education</h2>
-    <div class="certs-grid">
-      <div class="cert-card">
-        <div class="cert-icon">✅</div>
-        <div>
-          <div class="cert-name">CompTIA ITF+</div>
-          <div class="cert-status earned">Earned · May 2025</div>
-        </div>
-      </div>
-      <div class="cert-card">
-        <div class="cert-icon">📘</div>
-        <div>
-          <div class="cert-name">CompTIA Network+</div>
-          <div class="cert-status progress">In Progress</div>
-        </div>
-      </div>
-      <div class="cert-card">
-        <div class="cert-icon">🗓️</div>
-        <div>
-          <div class="cert-name">ITIL 4 Foundations</div>
-          <div class="cert-status planned">Planned</div>
-        </div>
-      </div>
-      <div class="cert-card">
-        <div class="cert-icon">🎓</div>
-        <div>
-          <div class="cert-name">A.A. — Information Technology</div>
-          <div class="cert-status edu">Harper College · Expected May 2026</div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <hr class="divider"/>
-
-  <!-- CONTACT -->
-  <section id="contact" class="reveal">
-    <div class="contact-box">
-      <div class="section-label" style="margin-bottom:12px">// contact</div>
-      <div class="contact-title">Let's connect</div>
-      <p class="contact-sub">Hiring for a technical role, building a team, or want to talk IT — reach out directly.</p>
-      <div class="contact-links">
-        <a class="btn primary" href="mailto:jacobr757@gmail.com">Email</a>
-        <a class="btn" href="https://www.linkedin.com/in/jacob-rodriguez-tech" target="_blank" rel="noreferrer">LinkedIn ↗</a>
-        <a class="btn" href="https://github.com/YOURHANDLE" target="_blank" rel="noreferrer">GitHub ↗</a>
-      </div>
-    </div>
-  </section>
-
-  <footer>
-    <span>Jacob Rodriguez</span> · Technical Solutions · Chicago / Chicagoland · <span id="yr"></span>
-  </footer>
+<div class="card">
+<h3>Monthly IT Support</h3>
+<p>
+Affordable ongoing technical support for small businesses.
+</p>
+<p class="price">Starting at $150 / month</p>
+</div>
 
 </div>
 
-<script>
-document.getElementById('yr').textContent = new Date().getFullYear();
-const obs = new IntersectionObserver(e => {
-  e.forEach(i => { if(i.isIntersecting){i.target.classList.add('visible');obs.unobserve(i.target);} });
-},{threshold:.08});
-document.querySelectorAll('.reveal').forEach(el=>obs.observe(el));
-</script>
+<div class="about">
+
+<h2>About</h2>
+
+<p>
+JR Tech Support is run by Jacob Rodriguez, a U.S. Marine Corps veteran with experience in IT systems, networking, and technical support.
+</p>
+
+<p>
+The goal is simple: provide reliable, straightforward tech help without the expensive contracts that large IT companies require.
+</p>
+
+<p>
+Whether you're dealing with slow WiFi, computer issues, printer problems, or security cameras, we help homes and small businesses get their technology running smoothly.
+</p>
+
+</div>
+
+<div class="contact">
+
+<h2>Need Tech Help?</h2>
+
+<p>
+If you're experiencing issues with your computer, internet, printer, or cameras, reach out and we can take a look.
+</p>
+
+<p>
+
+Email: your@email.com  
+<br>
+Location: Northwest Chicago Suburbs
+
+</p>
+
+<button onclick="window.location.href='mailto:your@email.com'">
+Request Help
+</button>
+
+</div>
+
+</div>
+
+<footer>
+
+JR Tech Support  
+Northwest Chicago Suburbs  
+© 2026
+
+</footer>
+
 </body>
 </html>
