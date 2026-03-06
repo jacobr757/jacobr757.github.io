@@ -4,9 +4,8 @@
 <meta charset="utf-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
 <title>Jacob Rodriguez — Technical Solutions</title>
-<meta name="description" content="Jacob Rodriguez — Technical solutions across IT support, networking, security systems, and workflow improvement."/>
+<meta name="description" content="Jacob Rodriguez — IT support, networking, systems troubleshooting, and technical solutions."/>
 
-<!-- Professional favicon -->
 <link rel="icon" type="image/svg+xml" href='data:image/svg+xml,
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
   <defs>
@@ -24,62 +23,62 @@
 
 <style>
 :root{
-  --bg:#070A10;
-  --surface:#0D1117;
-  --surface2:#111820;
-  --border:rgba(0,255,170,.13);
-  --border2:rgba(255,255,255,.07);
-  --text:#E8F0F8;
-  --muted:rgba(232,240,248,.60);
-  --muted2:rgba(232,240,248,.38);
-  --green:#00FFAA;
-  --blue:#38BDF8;
-  --purple:#A78BFA;
-  --orange:#FB923C;
+  --bg:#0A0F18;
+  --surface:rgba(15,21,34,.78);
+  --surface-2:rgba(18,25,40,.86);
+  --border:rgba(255,255,255,.08);
+  --border-strong:rgba(125,211,252,.16);
+  --text:#ECF3FF;
+  --muted:rgba(236,243,255,.68);
+  --muted-2:rgba(236,243,255,.42);
+  --blue:#7DD3FC;
+  --violet:#A78BFA;
   --mono:'JetBrains Mono', monospace;
   --sans:'Syne', sans-serif;
-  --radius:16px;
+  --radius:18px;
   --shadow:0 20px 50px rgba(0,0,0,.30);
+  --nav-h:72px;
 }
 
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 
 html{
   scroll-behavior:smooth;
-  scroll-padding-top:90px; /* smoother anchor landing below sticky nav */
+  scroll-padding-top:90px;
 }
 
 body{
-  background:var(--bg);
-  color:var(--text);
   font-family:var(--sans);
-  line-height:1.6;
+  color:var(--text);
+  line-height:1.65;
   overflow-x:hidden;
+  background:
+    radial-gradient(900px 520px at 14% 8%, rgba(125,211,252,.10), transparent 58%),
+    radial-gradient(860px 480px at 88% 12%, rgba(167,139,250,.10), transparent 58%),
+    linear-gradient(180deg, #09101A 0%, #0A0F18 45%, #0B111C 100%);
   position:relative;
 }
 
-/* Animated gradient background */
+body::before{
+  content:'';
+  position:fixed;
+  inset:0;
+  background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='1'/%3E%3C/svg%3E");
+  opacity:.015;
+  pointer-events:none;
+  z-index:0;
+}
+
 body::after{
   content:'';
   position:fixed;
   inset:-20%;
   background:
-    radial-gradient(circle at 15% 20%, rgba(56,189,248,.14), transparent 30%),
-    radial-gradient(circle at 85% 18%, rgba(167,139,250,.12), transparent 28%),
-    radial-gradient(circle at 50% 80%, rgba(0,255,170,.08), transparent 30%);
-  filter: blur(60px);
-  animation: driftGlow 18s ease-in-out infinite alternate;
-  pointer-events:none;
-  z-index:0;
-}
-
-/* subtle texture */
-body::before{
-  content:'';
-  position:fixed;
-  inset:0;
-  background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='1'/%3E%3C/svg%3E");
-  opacity:.018;
+    radial-gradient(circle at 18% 20%, rgba(125,211,252,.11), transparent 26%),
+    radial-gradient(circle at 82% 14%, rgba(167,139,250,.09), transparent 24%),
+    radial-gradient(circle at 52% 82%, rgba(125,211,252,.06), transparent 28%);
+  filter:blur(72px);
+  animation:driftGlow 20s ease-in-out infinite alternate;
   pointer-events:none;
   z-index:0;
 }
@@ -87,288 +86,291 @@ body::before{
 .wrap{
   max-width:1120px;
   margin:auto;
-  padding:0 24px 100px;
+  padding:0 24px 96px;
   position:relative;
   z-index:1;
 }
 
-/* nav */
 nav{
   position:sticky;
   top:0;
   z-index:100;
-  background:rgba(7,10,16,.78);
-  backdrop-filter:blur(18px);
-  border-bottom:1px solid var(--border2);
-  padding:14px 24px;
+  height:var(--nav-h);
   display:flex;
   align-items:center;
   justify-content:space-between;
   gap:16px;
+  padding:0 24px;
+  background:rgba(10,15,24,.72);
+  backdrop-filter:blur(18px);
+  border-bottom:1px solid var(--border);
 }
 
 .nav-brand{
-  font-family:var(--mono);
-  font-size:.9rem;
-  color:var(--green);
   text-decoration:none;
+  font-family:var(--mono);
+  font-size:.82rem;
+  letter-spacing:.10em;
+  text-transform:uppercase;
+  color:var(--blue);
 }
 
 .nav-links{
   display:flex;
-  gap:4px;
+  gap:6px;
   list-style:none;
   flex-wrap:wrap;
 }
 
 .nav-links a{
-  font-family:var(--mono);
-  font-size:.78rem;
-  color:var(--muted);
   text-decoration:none;
-  padding:6px 12px;
-  border-radius:8px;
+  font-family:var(--mono);
+  font-size:.76rem;
+  color:var(--muted);
+  padding:7px 12px;
+  border-radius:999px;
   border:1px solid transparent;
-  transition:all .25s ease;
+  transition:all .22s ease;
 }
 
 .nav-links a:hover{
-  color:var(--green);
+  color:var(--text);
   border-color:var(--border);
-  background:rgba(0,255,170,.05);
+  background:rgba(255,255,255,.03);
 }
 
-/* hero */
 .hero{
-  padding:92px 0 68px;
+  min-height:calc(100vh - var(--nav-h) - 24px);
   display:grid;
-  grid-template-columns:1.2fr .8fr;
-  gap:34px;
-  align-items:start;
+  grid-template-columns:1.15fr .85fr;
+  gap:36px;
+  align-items:center;
+  padding:72px 0 44px;
 }
-@media(max-width:860px){.hero{grid-template-columns:1fr}}
+
+@media(max-width:920px){
+  .hero{
+    grid-template-columns:1fr;
+    min-height:auto;
+    padding:64px 0 28px;
+  }
+}
 
 .hero-tag{
-  font-family:var(--mono);
-  font-size:.8rem;
-  color:var(--green);
-  background:rgba(0,255,170,.08);
-  border:1px solid rgba(0,255,170,.2);
-  padding:5px 12px;
-  border-radius:999px;
   display:inline-block;
+  font-family:var(--mono);
+  font-size:.76rem;
+  letter-spacing:.02em;
+  color:var(--blue);
+  background:rgba(125,211,252,.06);
+  border:1px solid rgba(125,211,252,.16);
+  padding:6px 12px;
+  border-radius:999px;
   margin-bottom:18px;
-  animation:fadeUp .6s ease both;
+  animation:fadeUp .55s ease both;
 }
 
 .hero h1{
-  font-size:clamp(2.7rem, 6vw, 4.5rem);
+  font-size:clamp(3rem, 6vw, 5.35rem);
+  line-height:.98;
+  letter-spacing:-.05em;
   font-weight:800;
-  line-height:1.03;
-  letter-spacing:-.03em;
-  animation:fadeUp .6s .1s ease both;
+  animation:fadeUp .55s .08s ease both;
 }
 
 .hero h1 span{
-  background:linear-gradient(135deg, var(--green) 0%, var(--blue) 60%, var(--purple) 100%);
+  background:linear-gradient(135deg, #d5ecff 0%, var(--blue) 52%, var(--violet) 100%);
   -webkit-background-clip:text;
   -webkit-text-fill-color:transparent;
   background-clip:text;
 }
 
 .hero-sub{
-  margin-top:14px;
+  margin-top:18px;
   font-family:var(--mono);
-  font-size:.92rem;
+  font-size:.88rem;
   color:var(--muted);
-  animation:fadeUp .6s .2s ease both;
+  animation:fadeUp .55s .16s ease both;
 }
 
 .hero-summary{
-  margin-top:20px;
-  color:var(--muted);
+  margin-top:22px;
+  max-width:58ch;
   font-size:1rem;
-  max-width:60ch;
-  line-height:1.75;
-  animation:fadeUp .6s .3s ease both;
+  color:var(--muted);
+  animation:fadeUp .55s .24s ease both;
 }
 
 .hero-btns{
   margin-top:28px;
   display:flex;
-  gap:10px;
   flex-wrap:wrap;
-  animation:fadeUp .6s .4s ease both;
+  gap:10px;
+  animation:fadeUp .55s .32s ease both;
 }
 
 .btn{
+  text-decoration:none;
   font-family:var(--mono);
-  font-size:.82rem;
+  font-size:.8rem;
   padding:11px 18px;
   border-radius:10px;
-  text-decoration:none;
-  transition:all .25s ease;
-  border:1px solid var(--border2);
+  border:1px solid var(--border);
   color:var(--muted);
-  background:rgba(13,17,23,.78);
+  background:rgba(15,21,34,.82);
+  transition:all .22s ease;
 }
 
 .btn:hover{
   color:var(--text);
-  border-color:rgba(255,255,255,.2);
+  border-color:rgba(255,255,255,.16);
   transform:translateY(-1px);
 }
 
 .btn.primary{
-  background:linear-gradient(135deg, rgba(0,255,170,.15), rgba(56,189,248,.12));
-  border-color:rgba(0,255,170,.35);
-  color:var(--green);
+  color:#EFF8FF;
+  border-color:rgba(125,211,252,.20);
+  background:linear-gradient(135deg, rgba(125,211,252,.14), rgba(167,139,250,.10));
 }
 
 .btn.primary:hover{
-  background:linear-gradient(135deg, rgba(0,255,170,.25), rgba(56,189,248,.2));
-  box-shadow:0 0 24px rgba(0,255,170,.18);
+  box-shadow:0 0 26px rgba(125,211,252,.10);
 }
 
-/* side card */
-.status-card{
-  background:rgba(13,17,23,.8);
-  border:1px solid var(--border2);
-  border-radius:18px;
-  padding:24px;
-  min-width:220px;
+.snapshot{
+  background:linear-gradient(180deg, rgba(15,21,34,.86), rgba(18,25,40,.78));
+  border:1px solid var(--border);
+  border-radius:22px;
+  padding:28px;
   box-shadow:var(--shadow);
-  animation:fadeUp .6s .25s ease both;
-  backdrop-filter:blur(10px);
+  backdrop-filter:blur(12px);
+  animation:fadeUp .55s .18s ease both;
 }
 
-.status-row{
+.snapshot-label{
+  font-family:var(--mono);
+  font-size:.74rem;
+  text-transform:uppercase;
+  letter-spacing:.10em;
+  color:var(--muted-2);
+  margin-bottom:18px;
+}
+
+.snapshot-list{
+  display:grid;
+  gap:18px;
+}
+
+.snapshot-item{
+  padding-bottom:18px;
+  border-bottom:1px solid var(--border);
+}
+
+.snapshot-item:last-child{
+  padding-bottom:0;
+  border-bottom:none;
+}
+
+.snapshot-title{
+  font-family:var(--mono);
+  font-size:.72rem;
+  text-transform:uppercase;
+  letter-spacing:.08em;
+  color:var(--muted-2);
+  margin-bottom:6px;
+}
+
+.snapshot-value{
+  font-size:1rem;
+  color:var(--text);
+}
+
+.snapshot-value.accent{
+  color:var(--blue);
+}
+
+.quick-strip{
   display:flex;
-  align-items:center;
+  flex-wrap:wrap;
   gap:10px;
+  padding:14px 0 0;
+  margin-bottom:72px;
+}
+
+.quick-item{
   font-family:var(--mono);
-  font-size:.8rem;
-  color:var(--muted);
-  margin-bottom:14px;
+  font-size:.76rem;
+  color:var(--muted-2);
+  padding:8px 12px;
+  border-radius:999px;
+  background:rgba(255,255,255,.02);
+  border:1px solid var(--border);
 }
 
-.status-dot{
-  width:8px;height:8px;border-radius:999px;
-  background:var(--green);
-  box-shadow:0 0 8px var(--green);
-  animation:pulse 2s infinite;
-}
-
-.status-item{
-  margin-top:14px;
-  padding-top:14px;
-  border-top:1px solid var(--border2);
-  font-family:var(--mono);
-  font-size:.78rem;
-}
-
-.status-label{color:var(--muted2);margin-bottom:4px}
-.status-value{color:var(--text)}
-.status-value.green{color:var(--green)}
-.status-value.blue{color:var(--blue)}
-.status-value.purple{color:var(--purple)}
-
-/* marquee */
-.marquee-wrap{
-  border-top:1px solid var(--border2);
-  border-bottom:1px solid var(--border2);
-  padding:14px 0;
-  overflow:hidden;
-  margin-bottom:76px;
-}
-
-.marquee-track{
-  display:flex;
-  gap:32px;
-  animation:marquee 24s linear infinite;
-  width:max-content;
-}
-
-.marquee-item{
-  font-family:var(--mono);
-  font-size:.8rem;
-  color:var(--muted2);
-  white-space:nowrap;
-  display:flex;
-  align-items:center;
-  gap:10px;
-}
-
-.marquee-item::before{
-  content:'◈';
-  color:var(--green);
-  opacity:.5;
-}
-
-/* sections */
 .section-label{
   font-family:var(--mono);
-  font-size:.75rem;
-  color:var(--green);
-  letter-spacing:.12em;
+  font-size:.73rem;
   text-transform:uppercase;
+  letter-spacing:.12em;
+  color:var(--blue);
   margin-bottom:8px;
 }
 
 .section-title{
   font-size:1.9rem;
   font-weight:800;
-  margin-bottom:30px;
-  letter-spacing:-.01em;
+  letter-spacing:-.02em;
+  margin-bottom:28px;
 }
 
 .divider{
   border:none;
-  border-top:1px solid var(--border2);
-  margin:0 0 76px;
+  border-top:1px solid var(--border);
+  margin:0 0 72px;
 }
 
-/* grid cards */
-.cards-3{
+.grid-3{
   display:grid;
-  grid-template-columns:repeat(3, 1fr);
+  grid-template-columns:repeat(3,1fr);
   gap:14px;
-  margin-bottom:76px;
+  margin-bottom:72px;
 }
 
-.cards-2{
+.grid-2{
   display:grid;
-  grid-template-columns:repeat(2, 1fr);
+  grid-template-columns:repeat(2,1fr);
   gap:14px;
-  margin-bottom:76px;
+  margin-bottom:72px;
 }
 
-@media(max-width:900px){
-  .cards-3{grid-template-columns:repeat(2, 1fr)}
+@media(max-width:920px){
+  .grid-3{grid-template-columns:repeat(2,1fr)}
 }
-@media(max-width:700px){
-  .cards-3,.cards-2{grid-template-columns:1fr}
+@media(max-width:720px){
+  .grid-3,.grid-2{grid-template-columns:1fr}
 }
 
 .card{
-  background:rgba(13,17,23,.8);
-  border:1px solid var(--border2);
-  border-radius:14px;
+  background:linear-gradient(180deg, rgba(15,21,34,.84), rgba(18,25,40,.78));
+  border:1px solid var(--border);
+  border-radius:18px;
   padding:24px;
-  transition:all .25s;
   box-shadow:var(--shadow);
   backdrop-filter:blur(10px);
+  transition:all .22s ease;
 }
 
 .card:hover{
-  border-color:rgba(0,255,170,.22);
   transform:translateY(-2px);
+  border-color:var(--border-strong);
 }
 
 .card-label{
   font-family:var(--mono);
   font-size:.72rem;
-  color:var(--green);
+  text-transform:uppercase;
+  letter-spacing:.08em;
+  color:var(--blue);
   margin-bottom:10px;
 }
 
@@ -379,8 +381,8 @@ nav{
 }
 
 .card-copy{
-  color:var(--muted);
   font-size:.92rem;
+  color:var(--muted);
   margin-bottom:14px;
 }
 
@@ -388,162 +390,32 @@ nav{
   list-style:none;
   display:flex;
   flex-direction:column;
-  gap:7px;
+  gap:8px;
 }
 
 .card-list li{
+  position:relative;
+  padding-left:14px;
   font-size:.88rem;
   color:var(--muted);
-  padding-left:15px;
-  position:relative;
 }
 
 .card-list li::before{
-  content:'▸';
-  position:absolute;
-  left:0;
-  top:2px;
-  color:var(--green);
-  opacity:.65;
-  font-size:.75rem;
-}
-
-/* proof cards */
-.proof-grid{
-  display:grid;
-  grid-template-columns:repeat(2, 1fr);
-  gap:14px;
-  margin-bottom:76px;
-}
-@media(max-width:700px){.proof-grid{grid-template-columns:1fr}}
-
-.proof-card{
-  background:rgba(13,17,23,.8);
-  border:1px solid var(--border2);
-  border-radius:14px;
-  padding:24px;
-  transition:all .25s;
-  position:relative;
-  overflow:hidden;
-  box-shadow:var(--shadow);
-  backdrop-filter:blur(10px);
-}
-
-.proof-card::before{
-  content:'';
-  position:absolute;
-  top:0;left:0;right:0;
-  height:2px;
-  background:linear-gradient(90deg, var(--green), var(--blue));
-  opacity:0;
-  transition:opacity .25s;
-}
-
-.proof-card:hover{
-  border-color:rgba(0,255,170,.22);
-  transform:translateY(-3px);
-}
-.proof-card:hover::before{opacity:1}
-
-.proof-label{
-  font-family:var(--mono);
-  font-size:.72rem;
-  color:var(--green);
-  margin-bottom:10px;
-}
-
-.proof-title{
-  font-size:1rem;
-  font-weight:700;
-  margin-bottom:12px;
-}
-
-.proof-list{
-  list-style:none;
-  display:flex;
-  flex-direction:column;
-  gap:6px;
-}
-
-.proof-list li{
-  font-size:.86rem;
-  color:var(--muted);
-  padding-left:14px;
-  position:relative;
-}
-
-.proof-list li::before{
-  content:'→';
+  content:'•';
   position:absolute;
   left:0;
   color:var(--blue);
-  font-size:.75rem;
 }
 
-/* certs */
-.certs-grid{
-  display:grid;
-  grid-template-columns:repeat(2,1fr);
-  gap:14px;
-  margin-bottom:76px;
-}
-@media(max-width:650px){.certs-grid{grid-template-columns:1fr}}
-
-.cert-card{
-  background:rgba(13,17,23,.8);
-  border:1px solid var(--border2);
-  border-radius:14px;
-  padding:20px 22px;
-  display:flex;
-  align-items:center;
-  gap:14px;
-  transition:border-color .25s;
-  box-shadow:var(--shadow);
-  backdrop-filter:blur(10px);
-}
-
-.cert-card:hover{border-color:rgba(167,139,250,.3)}
-
-.cert-icon{
-  font-size:1.8rem;
-  min-width:36px;
-  text-align:center;
-}
-
-.cert-name{
-  font-weight:700;
-  font-size:.95rem;
-  margin-bottom:3px;
-}
-
-.cert-status{
-  font-family:var(--mono);
-  font-size:.72rem;
-}
-.cert-status.earned{color:var(--green)}
-.cert-status.progress{color:var(--orange)}
-.cert-status.planned{color:var(--muted2)}
-
-/* contact */
 .contact-box{
-  background:rgba(13,17,23,.84);
-  border:1px solid var(--border2);
-  border-radius:18px;
-  padding:42px;
+  background:linear-gradient(180deg, rgba(15,21,34,.90), rgba(18,25,40,.82));
+  border:1px solid var(--border);
+  border-radius:22px;
+  padding:42px 28px;
   text-align:center;
-  position:relative;
-  overflow:hidden;
-  margin-bottom:70px;
   box-shadow:var(--shadow);
   backdrop-filter:blur(12px);
-}
-
-.contact-box::before{
-  content:'';
-  position:absolute;
-  inset:0;
-  background:radial-gradient(600px at 50% 100%, rgba(0,255,170,.07), transparent 70%);
-  pointer-events:none;
+  margin-bottom:72px;
 }
 
 .contact-title{
@@ -553,85 +425,63 @@ nav{
 }
 
 .contact-sub{
-  color:var(--muted);
-  font-size:.95rem;
-  margin-bottom:28px;
   max-width:52ch;
-  margin-left:auto;
-  margin-right:auto;
+  margin:0 auto 28px;
+  font-size:.96rem;
+  color:var(--muted);
 }
 
 .contact-links{
   display:flex;
-  gap:12px;
   justify-content:center;
+  gap:12px;
   flex-wrap:wrap;
 }
 
-/* footer */
 footer{
-  border-top:1px solid var(--border2);
-  padding-top:28px;
+  border-top:1px solid var(--border);
+  padding-top:26px;
   text-align:center;
   font-family:var(--mono);
-  font-size:.75rem;
-  color:var(--muted2);
+  font-size:.74rem;
+  color:var(--muted-2);
 }
-footer span{color:var(--green)}
 
-/* reveal */
+footer span{
+  color:var(--blue);
+}
+
 .reveal{
   opacity:0;
   transform:translateY(24px);
   transition:opacity .65s ease, transform .65s ease;
 }
+
 .reveal.visible{
   opacity:1;
   transform:none;
-}
-
-/* misc */
-.marine-badge{
-  display:inline-flex;
-  align-items:center;
-  gap:6px;
-  font-family:var(--mono);
-  font-size:.75rem;
-  color:var(--muted2);
-  background:rgba(255,255,255,.04);
-  border:1px solid var(--border2);
-  padding:4px 12px;
-  border-radius:999px;
-  margin-left:10px;
 }
 
 @keyframes fadeUp{
   from{opacity:0;transform:translateY(20px)}
   to{opacity:1;transform:translateY(0)}
 }
-@keyframes pulse{
-  0%,100%{opacity:1;box-shadow:0 0 8px var(--green)}
-  50%{opacity:.5;box-shadow:0 0 4px var(--green)}
-}
-@keyframes marquee{
-  from{transform:translateX(0)}
-  to{transform:translateX(-50%)}
-}
+
 @keyframes driftGlow{
   0%{transform:translate3d(0,0,0) scale(1)}
-  50%{transform:translate3d(2%, -1%, 0) scale(1.05)}
-  100%{transform:translate3d(-2%, 2%, 0) scale(1.02)}
+  50%{transform:translate3d(2%,-1%,0) scale(1.04)}
+  100%{transform:translate3d(-2%,2%,0) scale(1.02)}
 }
 </style>
 </head>
 <body>
 
 <nav>
-  <a class="nav-brand" href="#top">Jacob Rodriguez</a>
+  <a class="nav-brand" href="#top">Technical Solutions</a>
   <ul class="nav-links">
     <li><a href="#what-i-do">What I Do</a></li>
     <li><a href="#solutions">Solutions</a></li>
-    <li><a href="#proof">Proof of Work</a></li>
+    <li><a href="#work">Work</a></li>
     <li><a href="#about">About</a></li>
     <li><a href="#contact">Contact</a></li>
   </ul>
@@ -641,287 +491,227 @@ footer span{color:var(--green)}
 
   <section class="hero">
     <div>
-      <div class="hero-tag">Technical Solutions • Personal Brand • Future Business</div>
-      <h1>Jacob<br/><span>Rodriguez</span></h1>
-      <div class="hero-sub">
-        IT Support · Networking · Security Systems · Workflow Improvement
-        <span class="marine-badge">USMC Veteran</span>
-      </div>
+      <div class="hero-tag">Personal Brand • Technical Direction • Future Business</div>
+      <h1>Jacob<br><span>Rodriguez</span></h1>
+      <div class="hero-sub">IT Support · Networking · Systems</div>
+
       <p class="hero-summary">
-        I help employers, teams, and growing businesses solve technical problems across support, networking, security systems, and operational workflows. My background combines hands-on troubleshooting, systems discipline, and process-focused thinking with a long-term vision in IT, infrastructure, and automation.
+        I work at the intersection of technical support, systems troubleshooting, and networking. My approach focuses on clear problem solving, reliable infrastructure, and building technical environments that are easier for teams and businesses to operate.
       </p>
+
       <div class="hero-btns">
         <a class="btn primary" href="#contact">Work With Me</a>
-        <a class="btn" href="https://www.linkedin.com/in/jacob-rodriguez-tech" target="_blank" rel="noreferrer">LinkedIn ↗</a>
-        <a class="btn" href="https://github.com/YOURHANDLE" target="_blank" rel="noreferrer">GitHub ↗</a>
+        <a class="btn" href="https://www.linkedin.com/in/jacob-rodriguez-tech" target="_blank" rel="noreferrer">LinkedIn</a>
+        <a class="btn" href="https://github.com/YOURHANDLE" target="_blank" rel="noreferrer">GitHub</a>
       </div>
     </div>
 
-    <div class="status-card">
-      <div class="status-row">
-        <div class="status-dot"></div>
-        <span>Building long-term in tech</span>
-      </div>
-      <div class="status-item">
-        <div class="status-label">// location</div>
-        <div class="status-value">Chicago · Chicagoland</div>
-      </div>
-      <div class="status-item">
-        <div class="status-label">// current direction</div>
-        <div class="status-value blue">IT · Networking · Automation</div>
-      </div>
-      <div class="status-item">
-        <div class="status-label">// focus</div>
-        <div class="status-value green">Technical support + systems problem solving</div>
-      </div>
-      <div class="status-item">
-        <div class="status-label">// long-term vision</div>
-        <div class="status-value purple">Consulting · Infrastructure · Security</div>
+    <div class="snapshot">
+      <div class="snapshot-label">Professional Snapshot</div>
+
+      <div class="snapshot-list">
+        <div class="snapshot-item">
+          <div class="snapshot-title">Location</div>
+          <div class="snapshot-value">Chicago / Chicagoland</div>
+        </div>
+
+        <div class="snapshot-item">
+          <div class="snapshot-title">Focus</div>
+          <div class="snapshot-value accent">IT support and systems troubleshooting</div>
+        </div>
+
+        <div class="snapshot-item">
+          <div class="snapshot-title">Direction</div>
+          <div class="snapshot-value">Networking, infrastructure, and long-term technical growth</div>
+        </div>
+
+        <div class="snapshot-item">
+          <div class="snapshot-title">Background</div>
+          <div class="snapshot-value">U.S. Marine Corps veteran</div>
+        </div>
       </div>
     </div>
   </section>
 
-  <div class="marquee-wrap">
-    <div class="marquee-track">
-      <span class="marquee-item">Technical Support</span>
-      <span class="marquee-item">Networking</span>
-      <span class="marquee-item">Security Systems</span>
-      <span class="marquee-item">Documentation</span>
-      <span class="marquee-item">Troubleshooting</span>
-      <span class="marquee-item">Workflow Improvement</span>
-      <span class="marquee-item">IT Operations</span>
-      <span class="marquee-item">CCTV / Access Control</span>
-      <span class="marquee-item">Windows Environments</span>
-      <span class="marquee-item">Small Business Tech</span>
-      <span class="marquee-item">Technical Support</span>
-      <span class="marquee-item">Networking</span>
-      <span class="marquee-item">Security Systems</span>
-      <span class="marquee-item">Documentation</span>
-      <span class="marquee-item">Troubleshooting</span>
-      <span class="marquee-item">Workflow Improvement</span>
-      <span class="marquee-item">IT Operations</span>
-      <span class="marquee-item">CCTV / Access Control</span>
-      <span class="marquee-item">Windows Environments</span>
-      <span class="marquee-item">Small Business Tech</span>
-    </div>
+  <div class="quick-strip">
+    <span class="quick-item">Technical Support</span>
+    <span class="quick-item">Networking</span>
+    <span class="quick-item">Systems</span>
+    <span class="quick-item">Security Systems</span>
+    <span class="quick-item">Documentation</span>
+    <span class="quick-item">Workflow Improvement</span>
   </div>
 
   <section id="what-i-do" class="reveal">
-    <div class="section-label">// what i do</div>
-    <h2 class="section-title">Technical support with a business mindset</h2>
-    <div class="cards-3">
+    <div class="section-label">What I Do</div>
+    <h2 class="section-title">Simple, practical technical help</h2>
+
+    <div class="grid-3">
       <div class="card">
-        <div class="card-label">// support</div>
-        <div class="card-title">IT Support & Troubleshooting</div>
-        <p class="card-copy">Hands-on help across device issues, connectivity problems, user support, and day-to-day technical friction.</p>
+        <div class="card-label">Support</div>
+        <div class="card-title">IT Support</div>
+        <p class="card-copy">I help resolve technical issues clearly and efficiently, with a focus on communication, troubleshooting, and follow-through.</p>
         <ul class="card-list">
           <li>Remote troubleshooting</li>
-          <li>Issue isolation and resolution</li>
-          <li>Clear end-user communication</li>
+          <li>User support</li>
+          <li>Issue resolution</li>
         </ul>
       </div>
 
       <div class="card">
-        <div class="card-label">// infrastructure</div>
-        <div class="card-title">Networking & Systems</div>
-        <p class="card-copy">A growing foundation in network behavior, systems environments, and the kind of technical discipline that scales well.</p>
+        <div class="card-label">Systems</div>
+        <div class="card-title">Networking & Infrastructure</div>
+        <p class="card-copy">I am building deeper strength in systems and networking while applying a disciplined, process-based approach.</p>
         <ul class="card-list">
-          <li>IP networking fundamentals</li>
-          <li>Windows-based environments</li>
-          <li>Documentation and repeatable workflows</li>
+          <li>Networking fundamentals</li>
+          <li>Systems thinking</li>
+          <li>Structured workflows</li>
         </ul>
       </div>
 
       <div class="card">
-        <div class="card-label">// business value</div>
-        <div class="card-title">Operational Improvement</div>
-        <p class="card-copy">I care about making support cleaner, faster, and easier to repeat through better notes, better systems, and better process flow.</p>
+        <div class="card-label">Improvement</div>
+        <div class="card-title">Operational Support</div>
+        <p class="card-copy">I look for ways to make support cleaner, more repeatable, and more useful for both teams and businesses.</p>
         <ul class="card-list">
-          <li>Process-oriented thinking</li>
-          <li>Documentation structure</li>
-          <li>Workflow improvement mindset</li>
+          <li>Better documentation</li>
+          <li>Clearer process flow</li>
+          <li>Cleaner handoff habits</li>
         </ul>
       </div>
     </div>
   </section>
 
-  <hr class="divider"/>
+  <hr class="divider">
 
   <section id="solutions" class="reveal">
-    <div class="section-label">// solutions</div>
-    <h2 class="section-title">Ways I can help employers, teams, and businesses</h2>
-    <div class="cards-3">
+    <div class="section-label">Solutions</div>
+    <h2 class="section-title">Who this site is for</h2>
+
+    <div class="grid-3">
       <div class="card">
-        <div class="card-label">// employers</div>
-        <div class="card-title">Technical Team Support</div>
+        <div class="card-label">Employers</div>
+        <div class="card-title">Hiring Teams</div>
+        <p class="card-copy">A clear look at how I think, what I work on, and where I bring value in technical roles.</p>
         <ul class="card-list">
-          <li>IT support and helpdesk contribution</li>
-          <li>Documentation-heavy support roles</li>
-          <li>Junior infrastructure and networking growth roles</li>
+          <li>Support roles</li>
+          <li>Operations roles</li>
+          <li>Growth-track IT roles</li>
         </ul>
       </div>
 
       <div class="card">
-        <div class="card-label">// business</div>
-        <div class="card-title">Small Business Tech Help</div>
+        <div class="card-label">Business</div>
+        <div class="card-title">Small Businesses</div>
+        <p class="card-copy">A professional starting point for future business support, technical help, and systems guidance.</p>
         <ul class="card-list">
-          <li>Basic tech cleanup and troubleshooting</li>
-          <li>Security system support coordination</li>
-          <li>Practical guidance for smoother day-to-day operations</li>
+          <li>Basic tech help</li>
+          <li>Systems support direction</li>
+          <li>Workflow improvement thinking</li>
         </ul>
       </div>
 
       <div class="card">
-        <div class="card-label">// future-facing</div>
-        <div class="card-title">Systems & Automation Direction</div>
+        <div class="card-label">Future</div>
+        <div class="card-title">Long-Term Direction</div>
+        <p class="card-copy">This site is designed to grow with me as I move deeper into infrastructure, security, and consulting.</p>
         <ul class="card-list">
-          <li>Structured workflow thinking</li>
-          <li>AI-assisted documentation ideas</li>
-          <li>Technology solutions with business value in mind</li>
+          <li>Personal brand</li>
+          <li>Technical portfolio</li>
+          <li>Business foundation</li>
         </ul>
       </div>
     </div>
   </section>
 
-  <hr class="divider"/>
+  <hr class="divider">
 
-  <section id="proof" class="reveal">
-    <div class="section-label">// proof of work</div>
-    <h2 class="section-title">Projects, labs, and practical work</h2>
-    <div class="proof-grid">
+  <section id="work" class="reveal">
+    <div class="section-label">Work</div>
+    <h2 class="section-title">Projects and proof of work</h2>
 
-      <div class="proof-card">
-        <div class="proof-label">// home lab</div>
-        <div class="proof-title">Network Setup & Optimization</div>
-        <ul class="proof-list">
-          <li>Configured and improved a home network with stronger organization, security habits, and performance tuning.</li>
-          <li>Worked through connectivity issues using structured troubleshooting steps.</li>
-          <li>Focused on stability, speed, and cleaner device behavior.</li>
+    <div class="grid-2">
+      <div class="card">
+        <div class="card-label">Home Lab</div>
+        <div class="card-title">Network Setup & Troubleshooting</div>
+        <p class="card-copy">Hands-on work focused on stability, device behavior, and a more reliable technical setup.</p>
+        <ul class="card-list">
+          <li>Connectivity troubleshooting</li>
+          <li>Performance tuning</li>
+          <li>More organized setup habits</li>
         </ul>
       </div>
 
-      <div class="proof-card">
-        <div class="proof-label">// systems</div>
-        <div class="proof-title">Windows Server Lab Environment</div>
-        <ul class="proof-list">
-          <li>Built a personal lab environment to practice enterprise-style setup and administration concepts.</li>
-          <li>Used virtualization to learn how systems, roles, and user management fit together.</li>
-          <li>Strengthened systems understanding through hands-on repetition.</li>
+      <div class="card">
+        <div class="card-label">Systems</div>
+        <div class="card-title">Windows Server Lab Practice</div>
+        <p class="card-copy">Lab-based learning to build stronger understanding of systems administration and environment setup.</p>
+        <ul class="card-list">
+          <li>Virtualized practice</li>
+          <li>Administration concepts</li>
+          <li>Repeatable hands-on learning</li>
         </ul>
       </div>
 
-      <div class="proof-card">
-        <div class="proof-label">// support process</div>
-        <div class="proof-title">Troubleshooting & Documentation Frameworks</div>
-        <ul class="proof-list">
-          <li>Developed structured ways to think through issues, document actions taken, and reduce repeat confusion.</li>
-          <li>Focused on repeatable support habits instead of random one-off fixes.</li>
-          <li>Applied a process-driven approach shaped by both military and technical environments.</li>
+      <div class="card">
+        <div class="card-label">Process</div>
+        <div class="card-title">Documentation & Support Thinking</div>
+        <p class="card-copy">A focus on making troubleshooting easier to track, explain, and repeat.</p>
+        <ul class="card-list">
+          <li>Clear documentation habits</li>
+          <li>Better troubleshooting flow</li>
+          <li>Practical support mindset</li>
         </ul>
       </div>
 
-      <div class="proof-card">
-        <div class="proof-label">// security systems</div>
-        <div class="proof-title">Security Systems Support Experience</div>
-        <ul class="proof-list">
-          <li>Worked around surveillance, access, and related technical environments where connectivity and setup matter.</li>
-          <li>Built practical familiarity with how systems issues affect real users and real operations.</li>
-          <li>Bridged technical troubleshooting with customer-facing communication.</li>
+      <div class="card">
+        <div class="card-label">Security Systems</div>
+        <div class="card-title">Technical Systems Exposure</div>
+        <p class="card-copy">Real-world familiarity with connected systems where setup, access, and reliability matter.</p>
+        <ul class="card-list">
+          <li>Surveillance environments</li>
+          <li>Access-related systems</li>
+          <li>User-facing technical support</li>
         </ul>
       </div>
-
     </div>
   </section>
 
-  <hr class="divider"/>
+  <hr class="divider">
 
   <section id="about" class="reveal">
-    <div class="section-label">// about</div>
-    <h2 class="section-title">Professional background, not personal oversharing</h2>
-    <div class="cards-2">
+    <div class="section-label">About</div>
+    <h2 class="section-title">Professional background</h2>
+
+    <div class="grid-2">
       <div class="card">
-        <div class="card-label">// background</div>
-        <div class="card-title">Who I am professionally</div>
-        <p class="card-copy">
-          I come from a mix of military technical discipline, support-oriented problem solving, and an ongoing drive to grow deeper into networking, infrastructure, and long-term technical business work.
-        </p>
-        <ul class="card-list">
-          <li>U.S. Marine Corps veteran</li>
-          <li>Hands-on IT and systems exposure</li>
-          <li>Focused on building durable technical skills</li>
-        </ul>
+        <div class="card-label">Background</div>
+        <div class="card-title">Technical foundation</div>
+        <p class="card-copy">My background combines military discipline, technical support experience, and a long-term interest in infrastructure, systems, and business-minded technology work.</p>
       </div>
 
       <div class="card">
-        <div class="card-label">// direction</div>
-        <div class="card-title">Where this is going</div>
-        <p class="card-copy">
-          This site is meant to serve both as a professional presence for employers and as a foundation for future services, consulting, and technical business opportunities.
-        </p>
-        <ul class="card-list">
-          <li>Useful for recruiters and hiring teams</li>
-          <li>Useful for future clients and collaborators</li>
-          <li>Built to evolve with my career and business goals</li>
-        </ul>
+        <div class="card-label">Direction</div>
+        <div class="card-title">Built to grow</div>
+        <p class="card-copy">This site is intentionally simple. It is meant to work both as a professional presence for employers and as a starting point for future services and consulting.</p>
       </div>
     </div>
   </section>
 
-  <hr class="divider"/>
-
-  <section class="reveal">
-    <div class="section-label">// credentials</div>
-    <h2 class="section-title">Certifications & learning path</h2>
-    <div class="certs-grid">
-
-      <div class="cert-card">
-        <div class="cert-icon">✅</div>
-        <div>
-          <div class="cert-name">CompTIA ITF+</div>
-          <div class="cert-status earned">Earned</div>
-        </div>
-      </div>
-
-      <div class="cert-card">
-        <div class="cert-icon">📘</div>
-        <div>
-          <div class="cert-name">CompTIA Network+</div>
-          <div class="cert-status progress">In Progress</div>
-        </div>
-      </div>
-
-      <div class="cert-card">
-        <div class="cert-icon">🗓️</div>
-        <div>
-          <div class="cert-name">ITIL 4 Foundations</div>
-          <div class="cert-status planned">Planned</div>
-        </div>
-      </div>
-
-      <div class="cert-card">
-        <div class="cert-icon">🎓</div>
-        <div>
-          <div class="cert-name">Harper College — Information Technology Path</div>
-          <div class="cert-status earned">Education</div>
-        </div>
-      </div>
-
-    </div>
-  </section>
-
-  <hr class="divider"/>
+  <hr class="divider">
 
   <section id="contact" class="reveal">
     <div class="contact-box">
-      <div class="section-label" style="margin-bottom:12px">// contact</div>
+      <div class="section-label" style="margin-bottom:12px;">Contact</div>
       <div class="contact-title">Let’s connect</div>
       <p class="contact-sub">
-        Whether you’re a recruiter, employer, business owner, or collaborator, this is the best place to start the conversation. I keep this site intentionally clean and professional, with only the information needed to connect.
+        Whether you are hiring, building, or looking for someone with a practical technical mindset, this is the best place to start the conversation.
       </p>
+
       <div class="contact-links">
         <a class="btn primary" href="mailto:jacobr757@gmail.com">Email</a>
-        <a class="btn" href="https://www.linkedin.com/in/jacob-rodriguez-tech" target="_blank" rel="noreferrer">LinkedIn ↗</a>
-        <a class="btn" href="https://github.com/YOURHANDLE" target="_blank" rel="noreferrer">GitHub ↗</a>
+        <a class="btn" href="https://www.linkedin.com/in/jacob-rodriguez-tech" target="_blank" rel="noreferrer">LinkedIn</a>
+        <a class="btn" href="https://github.com/YOURHANDLE" target="_blank" rel="noreferrer">GitHub</a>
       </div>
     </div>
   </section>
@@ -937,17 +727,16 @@ document.getElementById('yr').textContent = new Date().getFullYear();
 
 const els = document.querySelectorAll('.reveal');
 const obs = new IntersectionObserver((entries) => {
-  entries.forEach(e => {
-    if (e.isIntersecting) {
-      e.target.classList.add('visible');
-      obs.unobserve(e.target);
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('visible');
+      obs.unobserve(entry.target);
     }
   });
 }, { threshold: 0.08 });
 
 els.forEach(el => obs.observe(el));
 
-/* smoother nav anchor scroll */
 document.querySelectorAll('a[href^="#"]').forEach(link => {
   link.addEventListener('click', function(e){
     const id = this.getAttribute('href');
