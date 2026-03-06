@@ -1,216 +1,415 @@
 <!doctype html>
 <html lang="en">
 <head>
-
 <meta charset="utf-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-
 <title>JR Tech Support | IT Help for Homes & Small Businesses</title>
-
 <meta name="description" content="Affordable IT support for homes and small businesses in the Northwest Chicago suburbs. WiFi troubleshooting, computer repair, printer setup, and security camera installation."/>
-
 <link rel="preconnect" href="https://fonts.googleapis.com"/>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet"/>
-
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&family=Syne:wght@400;600;700;800&display=swap" rel="stylesheet"/>
 <style>
-
+:root{
+  --bg:#070A10;
+  --surface:#0D1117;
+  --surface2:#111820;
+  --border2:rgba(255,255,255,.07);
+  --text:#E8F0F8;
+  --muted:rgba(232,240,248,.60);
+  --muted2:rgba(232,240,248,.36);
+  --green:#00FFAA;
+  --blue:#38BDF8;
+  --purple:#A78BFA;
+  --orange:#FB923C;
+  --mono:'JetBrains Mono',monospace;
+  --sans:'Syne',sans-serif;
+  --shadow:0 20px 50px rgba(0,0,0,.32);
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
 body{
-font-family:Inter, sans-serif;
-margin:0;
-background:#0e0e10;
-color:white;
-line-height:1.6;
+  background:var(--bg);
+  color:var(--text);
+  font-family:var(--sans);
+  line-height:1.6;
+  overflow-x:hidden;
+}
+body::before{
+  content:'';position:fixed;inset:0;
+  background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='1'/%3E%3C/svg%3E");
+  opacity:.02;pointer-events:none;z-index:0;
+}
+body::after{
+  content:'';position:fixed;inset:0;
+  background-image:
+    linear-gradient(rgba(0,255,170,.03) 1px,transparent 1px),
+    linear-gradient(90deg,rgba(0,255,170,.03) 1px,transparent 1px);
+  background-size:40px 40px;
+  pointer-events:none;z-index:0;
+}
+.wrap{max-width:1120px;margin:auto;padding:0 24px 100px;position:relative;z-index:1}
+
+/* NAV */
+nav{
+  position:sticky;top:0;z-index:100;
+  background:rgba(7,10,16,.88);
+  backdrop-filter:blur(18px);
+  border-bottom:1px solid var(--border2);
+  padding:14px 24px;
+  display:flex;align-items:center;justify-content:space-between;gap:16px;
+}
+.nav-brand{font-family:var(--mono);font-size:.9rem;color:var(--green);text-decoration:none;letter-spacing:.04em}
+.nav-links{display:flex;gap:4px;list-style:none;flex-wrap:wrap}
+.nav-links a{
+  font-family:var(--mono);font-size:.76rem;color:var(--muted);text-decoration:none;
+  padding:6px 12px;border-radius:8px;border:1px solid transparent;transition:all .2s;
+}
+.nav-links a:hover{color:var(--green);border-color:rgba(0,255,170,.18);background:rgba(0,255,170,.05)}
+.nav-cta{
+  font-family:var(--mono);font-size:.76rem;
+  background:linear-gradient(135deg,rgba(0,255,170,.15),rgba(56,189,248,.12));
+  border:1px solid rgba(0,255,170,.3);color:var(--green);
+  padding:7px 16px;border-radius:8px;text-decoration:none;transition:all .2s;
+}
+.nav-cta:hover{background:linear-gradient(135deg,rgba(0,255,170,.25),rgba(56,189,248,.2));box-shadow:0 0 20px rgba(0,255,170,.15)}
+
+/* HERO */
+.hero{
+  padding:96px 0 72px;
+  display:grid;grid-template-columns:1.2fr .8fr;gap:40px;align-items:center;
+}
+@media(max-width:860px){.hero{grid-template-columns:1fr;padding:72px 0 56px}}
+
+.hero-kicker{
+  font-family:var(--mono);font-size:.76rem;color:var(--green);
+  letter-spacing:.12em;text-transform:uppercase;margin-bottom:18px;
+  display:flex;align-items:center;gap:10px;
+  animation:fadeUp .6s ease both;
+}
+.hero-kicker::before{content:'';width:20px;height:1px;background:var(--green)}
+.hero h1{
+  font-size:clamp(2.8rem,6vw,4.8rem);font-weight:800;
+  line-height:1.02;letter-spacing:-.03em;
+  animation:fadeUp .6s .1s ease both;
+}
+.hero h1 span{
+  background:linear-gradient(135deg,var(--green) 0%,var(--blue) 60%,var(--purple) 100%);
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;
+}
+.hero-sub{
+  margin-top:18px;color:var(--muted);font-size:1.05rem;
+  max-width:50ch;line-height:1.75;
+  animation:fadeUp .6s .2s ease both;
+}
+.hero-btns{
+  margin-top:30px;display:flex;gap:10px;flex-wrap:wrap;
+  animation:fadeUp .6s .3s ease both;
+}
+.btn{
+  font-family:var(--mono);font-size:.82rem;padding:12px 20px;
+  border-radius:10px;text-decoration:none;transition:all .2s;
+  border:1px solid var(--border2);color:var(--muted);background:var(--surface);
+}
+.btn:hover{color:var(--text);border-color:rgba(255,255,255,.18);transform:translateY(-1px)}
+.btn.primary{
+  background:linear-gradient(135deg,rgba(0,255,170,.15),rgba(56,189,248,.12));
+  border-color:rgba(0,255,170,.35);color:var(--green);
+}
+.btn.primary:hover{background:linear-gradient(135deg,rgba(0,255,170,.25),rgba(56,189,248,.2));box-shadow:0 0 24px rgba(0,255,170,.18)}
+
+/* HERO CARD */
+.status-card{
+  background:var(--surface);border:1px solid var(--border2);
+  border-radius:18px;padding:26px;box-shadow:var(--shadow);
+  animation:fadeUp .6s .2s ease both;
+}
+.status-row{
+  display:flex;align-items:center;gap:10px;
+  font-family:var(--mono);font-size:.78rem;color:var(--muted);margin-bottom:16px;
+}
+.status-dot{
+  width:8px;height:8px;border-radius:999px;
+  background:var(--green);box-shadow:0 0 8px var(--green);
+  animation:pulse 2s infinite;flex-shrink:0;
+}
+.status-item{margin-top:14px;padding-top:14px;border-top:1px solid var(--border2);font-family:var(--mono);font-size:.76rem}
+.status-label{color:var(--muted2);margin-bottom:4px;letter-spacing:.04em}
+.status-value{color:var(--text)}
+.status-value.green{color:var(--green)}
+.status-value.blue{color:var(--blue)}
+.status-value.orange{color:var(--orange)}
+
+/* MARQUEE */
+.marquee-wrap{
+  border-top:1px solid var(--border2);border-bottom:1px solid var(--border2);
+  padding:13px 0;overflow:hidden;margin-bottom:80px;
+}
+.marquee-track{display:flex;gap:32px;animation:marquee 26s linear infinite;width:max-content}
+.marquee-item{
+  font-family:var(--mono);font-size:.78rem;color:var(--muted2);
+  white-space:nowrap;display:flex;align-items:center;gap:10px;
+}
+.marquee-item::before{content:'◈';color:var(--green);opacity:.5}
+
+/* SECTION */
+.section-label{font-family:var(--mono);font-size:.74rem;color:var(--green);letter-spacing:.12em;text-transform:uppercase;margin-bottom:8px}
+.section-title{font-size:1.9rem;font-weight:800;margin-bottom:32px;letter-spacing:-.01em}
+.divider{border:none;border-top:1px solid var(--border2);margin:0 0 76px}
+
+/* SERVICE CARDS */
+.services-grid{
+  display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-bottom:76px;
+}
+@media(max-width:900px){.services-grid{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:560px){.services-grid{grid-template-columns:1fr}}
+
+.svc-card{
+  background:var(--surface);border:1px solid var(--border2);
+  border-radius:14px;padding:26px;
+  position:relative;overflow:hidden;
+  transition:all .25s;box-shadow:var(--shadow);
+  display:flex;flex-direction:column;gap:12px;
+}
+.svc-card::before{
+  content:'';position:absolute;top:0;left:0;right:0;height:2px;
+  background:linear-gradient(90deg,var(--green),var(--blue));
+  opacity:0;transition:opacity .25s;
+}
+.svc-card:hover{border-color:rgba(0,255,170,.22);transform:translateY(-3px)}
+.svc-card:hover::before{opacity:1}
+.svc-label{font-family:var(--mono);font-size:.7rem;color:var(--green);letter-spacing:.08em;text-transform:uppercase}
+.svc-title{font-size:1.02rem;font-weight:700}
+.svc-desc{font-size:.9rem;color:var(--muted);line-height:1.7;flex:1}
+.svc-price{
+  font-family:var(--mono);font-size:.82rem;font-weight:500;
+  color:var(--blue);margin-top:4px;
+  padding-top:12px;border-top:1px solid var(--border2);
 }
 
-header{
-padding:40px 20px;
-text-align:center;
-background:#121217;
-border-bottom:1px solid #222;
+/* ABOUT */
+.about-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-bottom:76px}
+@media(max-width:700px){.about-grid{grid-template-columns:1fr}}
+.about-card{
+  background:var(--surface);border:1px solid var(--border2);
+  border-radius:14px;padding:28px;box-shadow:var(--shadow);
+  transition:border-color .25s;
 }
+.about-card:hover{border-color:rgba(0,255,170,.18)}
+.about-label{font-family:var(--mono);font-size:.7rem;color:var(--green);margin-bottom:10px;letter-spacing:.08em;text-transform:uppercase}
+.about-title{font-size:1rem;font-weight:700;margin-bottom:14px}
+.about-text{font-size:.92rem;color:var(--muted);line-height:1.75}
+.about-list{list-style:none;display:flex;flex-direction:column;gap:8px;margin-top:14px}
+.about-list li{font-size:.88rem;color:var(--muted);padding-left:16px;position:relative}
+.about-list li::before{content:'▸';position:absolute;left:0;top:2px;color:var(--green);opacity:.65;font-size:.75rem}
 
-h1{
-font-weight:600;
-font-size:36px;
+/* CONTACT */
+.contact-box{
+  background:var(--surface);border:1px solid var(--border2);
+  border-radius:18px;padding:48px;text-align:center;
+  position:relative;overflow:hidden;margin-bottom:70px;box-shadow:var(--shadow);
 }
-
-h2{
-margin-top:40px;
-font-weight:500;
+.contact-box::before{
+  content:'';position:absolute;inset:0;
+  background:radial-gradient(700px at 50% 120%,rgba(0,255,170,.07),transparent 65%);
+  pointer-events:none;
 }
+.contact-title{font-size:2.2rem;font-weight:800;margin-bottom:10px;letter-spacing:-.02em}
+.contact-sub{color:var(--muted);font-size:.97rem;margin:0 auto 10px;max-width:48ch;line-height:1.7}
+.contact-email{font-family:var(--mono);font-size:.82rem;color:var(--muted2);margin-bottom:28px}
+.contact-links{display:flex;gap:12px;justify-content:center;flex-wrap:wrap}
 
-.container{
-max-width:1000px;
-margin:auto;
-padding:20px;
-}
-
-.services{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-gap:20px;
-margin-top:30px;
-}
-
-.card{
-background:#18181c;
-padding:20px;
-border-radius:8px;
-border:1px solid #222;
-}
-
-.card h3{
-margin-top:0;
-}
-
-.price{
-color:#7dd3fc;
-font-weight:500;
-}
-
-.about{
-background:#141418;
-padding:25px;
-border-radius:8px;
-margin-top:40px;
-}
-
-.contact{
-margin-top:40px;
-text-align:center;
-}
-
-button{
-background:#2563eb;
-border:none;
-padding:12px 20px;
-color:white;
-border-radius:6px;
-font-size:16px;
-cursor:pointer;
-}
-
+/* FOOTER */
 footer{
-text-align:center;
-margin-top:60px;
-padding:20px;
-font-size:14px;
-color:#aaa;
+  border-top:1px solid var(--border2);padding-top:28px;
+  text-align:center;font-family:var(--mono);font-size:.74rem;color:var(--muted2);
 }
+footer span{color:var(--green)}
 
+/* REVEAL */
+.reveal{opacity:0;transform:translateY(22px);transition:opacity .55s ease,transform .55s ease}
+.reveal.visible{opacity:1;transform:none}
+
+@keyframes fadeUp{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}
+@keyframes pulse{0%,100%{opacity:1;box-shadow:0 0 8px var(--green)}50%{opacity:.5;box-shadow:0 0 3px var(--green)}}
+@keyframes marquee{from{transform:translateX(0)}to{transform:translateX(-50%)}}
 </style>
 </head>
-
 <body>
 
-<header>
+<nav>
+  <a class="nav-brand" href="#top">JR Tech Support</a>
+  <ul class="nav-links">
+    <li><a href="#services">Services</a></li>
+    <li><a href="#about">About</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+  <a class="nav-cta" href="#contact">Get Help →</a>
+</nav>
 
-<h1>JR Tech Support</h1>
+<div class="wrap" id="top">
 
-<p>
-Local IT Help for Homes & Small Businesses  
-Serving the Northwest Chicago Suburbs
-</p>
+  <!-- HERO -->
+  <section class="hero">
+    <div>
+      <div class="hero-kicker">Northwest Chicago Suburbs</div>
+      <h1>Local IT Help,<br/><span>Done Right</span></h1>
+      <p class="hero-sub">Affordable tech support for homes and small businesses. WiFi, computers, printers, and security cameras — no contracts, no runaround.</p>
+      <div class="hero-btns">
+        <a class="btn primary" href="#contact">Request Help</a>
+        <a class="btn" href="#services">See Services</a>
+      </div>
+    </div>
 
-</header>
+    <div class="status-card">
+      <div class="status-row">
+        <div class="status-dot"></div>
+        <span>Currently accepting clients</span>
+      </div>
+      <div class="status-item">
+        <div class="status-label">// service area</div>
+        <div class="status-value">Northwest Chicago Suburbs</div>
+      </div>
+      <div class="status-item">
+        <div class="status-label">// response time</div>
+        <div class="status-value green">Same or next day</div>
+      </div>
+      <div class="status-item">
+        <div class="status-label">// support type</div>
+        <div class="status-value blue">On-site & Remote</div>
+      </div>
+      <div class="status-item">
+        <div class="status-label">// contracts</div>
+        <div class="status-value orange">None required</div>
+      </div>
+    </div>
+  </section>
 
-<div class="container">
+  <!-- MARQUEE -->
+  <div class="marquee-wrap">
+    <div class="marquee-track">
+      <span class="marquee-item">WiFi & Networking</span>
+      <span class="marquee-item">Computer Repair</span>
+      <span class="marquee-item">Virus Removal</span>
+      <span class="marquee-item">Security Cameras</span>
+      <span class="marquee-item">Printer Setup</span>
+      <span class="marquee-item">Slow PC Fixes</span>
+      <span class="marquee-item">Monthly IT Support</span>
+      <span class="marquee-item">On-Site & Remote</span>
+      <span class="marquee-item">No Contracts</span>
+      <span class="marquee-item">Small Business Friendly</span>
+      <span class="marquee-item">WiFi & Networking</span>
+      <span class="marquee-item">Computer Repair</span>
+      <span class="marquee-item">Virus Removal</span>
+      <span class="marquee-item">Security Cameras</span>
+      <span class="marquee-item">Printer Setup</span>
+      <span class="marquee-item">Slow PC Fixes</span>
+      <span class="marquee-item">Monthly IT Support</span>
+      <span class="marquee-item">On-Site & Remote</span>
+      <span class="marquee-item">No Contracts</span>
+      <span class="marquee-item">Small Business Friendly</span>
+    </div>
+  </div>
 
-<h2>Tech Support Services</h2>
+  <!-- SERVICES -->
+  <section id="services" class="reveal">
+    <div class="section-label">// services</div>
+    <h2 class="section-title">What I can fix for you</h2>
+    <div class="services-grid">
 
-<div class="services">
+      <div class="svc-card">
+        <div class="svc-label">// network</div>
+        <div class="svc-title">WiFi & Network Setup</div>
+        <div class="svc-desc">Router installation, slow internet troubleshooting, mesh networks, and guest WiFi setup.</div>
+        <div class="svc-price">Contact for a free quote →</div>
+      </div>
 
-<div class="card">
-<h3>WiFi & Network Setup</h3>
-<p>
-Router installation, slow internet troubleshooting, mesh networks, and guest WiFi setup.
-</p>
-<p class="price">$150 – $300</p>
+      <div class="svc-card">
+        <div class="svc-label">// computer</div>
+        <div class="svc-title">Computer Repair & Cleanup</div>
+        <div class="svc-desc">Fix slow computers, remove viruses, install updates, and get your system running like new.</div>
+        <div class="svc-price">Contact for a free quote →</div>
+      </div>
+
+      <div class="svc-card">
+        <div class="svc-label">// office</div>
+        <div class="svc-title">Printer & Office Setup</div>
+        <div class="svc-desc">Printer installation, scanner configuration, and shared network printing for your home or office.</div>
+        <div class="svc-price">Contact for a free quote →</div>
+      </div>
+
+      <div class="svc-card">
+        <div class="svc-label">// security</div>
+        <div class="svc-title">Security Camera Setup</div>
+        <div class="svc-desc">Installation and troubleshooting for home and small business camera systems.</div>
+        <div class="svc-price">Contact for a free quote →</div>
+      </div>
+
+      <div class="svc-card">
+        <div class="svc-label">// ongoing</div>
+        <div class="svc-title">Monthly IT Support</div>
+        <div class="svc-desc">Affordable ongoing technical support for small businesses. No big contracts, no surprises.</div>
+        <div class="svc-price">Contact for a free quote →</div>
+      </div>
+
+    </div>
+  </section>
+
+  <hr class="divider"/>
+
+  <!-- ABOUT -->
+  <section id="about" class="reveal">
+    <div class="section-label">// about</div>
+    <h2 class="section-title">Who's behind JR Tech Support</h2>
+    <div class="about-grid">
+      <div class="about-card">
+        <div class="about-label">// background</div>
+        <div class="about-title">Jacob Rodriguez</div>
+        <p class="about-text">U.S. Marine Corps veteran with hands-on experience in IT systems, networking, and technical support. Now bringing that discipline to local homes and small businesses.</p>
+        <ul class="about-list">
+          <li>USMC veteran · MOS 0671 Data Systems Admin</li>
+          <li>CompTIA ITF+ certified</li>
+          <li>Real-world support across networking and security systems</li>
+        </ul>
+      </div>
+      <div class="about-card">
+        <div class="about-label">// mission</div>
+        <div class="about-title">Simple, honest tech help</div>
+        <p class="about-text">No expensive contracts. No confusing jargon. Just reliable, straightforward support that gets your technology working so you can get back to what matters.</p>
+        <ul class="about-list">
+          <li>Transparent pricing, no hidden fees</li>
+          <li>On-site visits throughout the Northwest suburbs</li>
+          <li>Remote support available for quick fixes</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <hr class="divider"/>
+
+  <!-- CONTACT -->
+  <section id="contact" class="reveal">
+    <div class="contact-box">
+      <div class="section-label" style="margin-bottom:14px">// contact</div>
+      <div class="contact-title">Need tech help?</div>
+      <p class="contact-sub">Describe what's going on and I'll get back to you same or next day.</p>
+      <p class="contact-email">your@email.com &nbsp;·&nbsp; Northwest Chicago Suburbs</p>
+      <div class="contact-links">
+        <a class="btn primary" href="mailto:your@email.com">Send a Message</a>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <span>JR Tech Support</span> · Northwest Chicago Suburbs · © <span id="yr"></span>
+  </footer>
+
 </div>
 
-<div class="card">
-<h3>Computer Repair & Cleanup</h3>
-<p>
-Fix slow computers, remove viruses, install updates, and improve system performance.
-</p>
-<p class="price">$100 – $150</p>
-</div>
-
-<div class="card">
-<h3>Printer & Office Setup</h3>
-<p>
-Printer installation, scanner configuration, and shared network printing setup.
-</p>
-<p class="price">$75 – $150</p>
-</div>
-
-<div class="card">
-<h3>Security Camera Setup</h3>
-<p>
-Installation and troubleshooting for home and small business camera systems.
-</p>
-<p class="price">$200 – $800</p>
-</div>
-
-<div class="card">
-<h3>Monthly IT Support</h3>
-<p>
-Affordable ongoing technical support for small businesses.
-</p>
-<p class="price">Starting at $150 / month</p>
-</div>
-
-</div>
-
-<div class="about">
-
-<h2>About</h2>
-
-<p>
-JR Tech Support is run by Jacob Rodriguez, a U.S. Marine Corps veteran with experience in IT systems, networking, and technical support.
-</p>
-
-<p>
-The goal is simple: provide reliable, straightforward tech help without the expensive contracts that large IT companies require.
-</p>
-
-<p>
-Whether you're dealing with slow WiFi, computer issues, printer problems, or security cameras, we help homes and small businesses get their technology running smoothly.
-</p>
-
-</div>
-
-<div class="contact">
-
-<h2>Need Tech Help?</h2>
-
-<p>
-If you're experiencing issues with your computer, internet, printer, or cameras, reach out and we can take a look.
-</p>
-
-<p>
-
-Email: your@email.com  
-<br>
-Location: Northwest Chicago Suburbs
-
-</p>
-
-<button onclick="window.location.href='mailto:your@email.com'">
-Request Help
-</button>
-
-</div>
-
-</div>
-
-<footer>
-
-JR Tech Support  
-Northwest Chicago Suburbs  
-© 2026
-
-</footer>
-
+<script>
+document.getElementById('yr').textContent = new Date().getFullYear();
+const obs = new IntersectionObserver(e=>{
+  e.forEach(i=>{if(i.isIntersecting){i.target.classList.add('visible');obs.unobserve(i.target);}});
+},{threshold:.08});
+document.querySelectorAll('.reveal').forEach(el=>obs.observe(el));
+</script>
 </body>
 </html>
